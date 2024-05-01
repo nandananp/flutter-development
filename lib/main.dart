@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,12 +30,10 @@ class FirstPage extends StatelessWidget {
       ),
       body: Center(
         child: TextButton(
-          onPressed: () async {
-            var message = await Navigator.push(context,
-                MaterialPageRoute(builder: (context) {
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
               return const SecondPage(title: 'SecondPage');
             }));
-            print(message); // Changed 'log' to 'print' here
           },
           child: const Text('Next'),
         ),
@@ -58,7 +54,7 @@ class SecondPage extends StatelessWidget {
       body: Center(
         child: TextButton(
           onPressed: () {
-            Navigator.pop(context, "Returned from SecondPage");
+            Navigator.pop(context);
           },
           child: const Text('Go Back'),
         ),
