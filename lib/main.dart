@@ -1,94 +1,16 @@
-// ignore_for_file: avoid_unnecessary_containers
-
-import 'package:calculator_app/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:silver_appbar/Home_Page/home_page.dart';
 
 void main() {
-  runApp(const Calculatorapp());
+  runApp(const MyApp());
 }
 
-class Calculatorapp extends StatelessWidget {
-  //constructor
-  const Calculatorapp({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-//build function
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      //calling homepage state
-      home: HomePage(),
-    );
-  }
-}
-
-//definition of homePageState function
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  HomePageState createState() => HomePageState();
-}
-
-class HomePageState extends State<HomePage> {
-  final List<String> buttons = [
-    'C',
-    'DEL',
-    '%',
-    '/',
-    '9',
-    '8',
-    '7',
-    '*',
-    '6',
-    '5',
-    '4',
-    '-',
-    '3',
-    '2',
-    '1',
-    '+',
-    '0',
-    '.',
-    'ANS',
-    '=',
-  ];
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.deepPurple[100],
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            child: Container(),
-          ),
-          Expanded(
-            flex: 2,
-            child: Container(
-              child: GridView.builder(
-                  itemCount: buttons.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4),
-                  itemBuilder: (BuildContext context, int index) {
-                    return MyButton(
-                      buttontext: buttons[index],
-                      color: isOperator(buttons[index])
-                          ? Colors.green
-                          : Colors.deepPurple[50],
-                      textColor: isOperator(buttons[index])
-                          ? Colors.green
-                          : Colors.deepPurple,
-                    );
-                  }),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  bool isOperator(String x) {
-    List<String> operators = ['%', '/', '*', '+', '-', '='];
-    return operators.contains(x);
+    return const MaterialApp(home: HomePage());
   }
 }

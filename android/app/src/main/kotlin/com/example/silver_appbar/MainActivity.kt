@@ -1,4 +1,4 @@
-package com.example.calculator_app
+package com.example.silver_appbar
 
 import io.flutter.embedding.android.FlutterActivity
 
