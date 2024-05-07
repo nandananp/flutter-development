@@ -1,94 +1,92 @@
-// ignore_for_file: avoid_unnecessary_containers
-
-import 'package:calculator_app/buttons.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const Calculatorapp());
+  runApp(const GPayUI());
 }
 
-class Calculatorapp extends StatelessWidget {
-  //constructor
-  const Calculatorapp({Key? key}) : super(key: key);
+class GPayUI extends StatelessWidget {
+  const GPayUI({super.key});
 
-//build function
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      //calling homepage state
-      home: HomePage(),
+    return MaterialApp(
+      title: 'GPay UI',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const GPayHomePage(),
     );
   }
 }
 
-//definition of homePageState function
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class GPayHomePage extends StatelessWidget {
+  const GPayHomePage({super.key});
 
-  @override
-  HomePageState createState() => HomePageState();
-}
-
-class HomePageState extends State<HomePage> {
-  final List<String> buttons = [
-    'C',
-    'DEL',
-    '%',
-    '/',
-    '9',
-    '8',
-    '7',
-    '*',
-    '6',
-    '5',
-    '4',
-    '-',
-    '3',
-    '2',
-    '1',
-    '+',
-    '0',
-    '.',
-    'ANS',
-    '=',
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple[100],
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            child: Container(),
-          ),
-          Expanded(
-            flex: 2,
-            child: Container(
-              child: GridView.builder(
-                  itemCount: buttons.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4),
-                  itemBuilder: (BuildContext context, int index) {
-                    return MyButton(
-                      buttontext: buttons[index],
-                      color: isOperator(buttons[index])
-                          ? Colors.green
-                          : Colors.deepPurple[50],
-                      textColor: isOperator(buttons[index])
-                          ? Colors.green
-                          : Colors.deepPurple,
-                    );
-                  }),
+      appBar: AppBar(
+        title: const Text('Google Pay'),
+      ),
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            GpayButton(
+              text: 'Send Money',
+              onPressed: () {
+                print('Sending money...');
+              },
+              image: 'assets/images/sendmoney.jpg',
             ),
-          ),
-        ],
+            GpayButton(
+                text: 'Receive Money',
+                onPressed: () {
+                  print('Receiving money...');
+                },
+                image: 'assets/images/receivemoney.jpg'),
+            GpayButton(
+                text: 'Transaction History',
+                onPressed: () {
+                  print('Viewing transaction history...');
+                },
+                image: 'assets/images/transaction.png'),
+            GpayButton(
+                text: 'Settings',
+                onPressed: () {
+                  print('Accessing settings...');
+                },
+                image: 'assets/images/settings.jpg'),
+          ],
+        ),
       ),
     );
   }
+}
 
-  bool isOperator(String x) {
-    List<String> operators = ['%', '/', '*', '+', '-', '='];
-    return operators.contains(x);
+class GpayButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+  final String image;
+
+  const GpayButton(
+      {Key? key,
+      required this.text,
+      required this.onPressed,
+      required this.image});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Image.asset(image, width: 100, height: 200),
+          const SizedBox(width: 2.0), // Add spacing between image and text
+          Text(text),
+        ],
+      ),
+    );
   }
 }
