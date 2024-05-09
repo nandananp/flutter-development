@@ -57,9 +57,10 @@ class GPayHomePage extends StatelessWidget {
                   print('Accessing settings...');
                 },
                 image: 'assets/images/settings.jpg'),
-          ],
+          ] ,
         ),
       ),
+    
     );
   }
 }
