@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profile_screen/SendMoneyScreen.dart';
 
 void main() {
   runApp(const GPayUI());
@@ -10,6 +11,7 @@ class GPayUI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'GPay UI',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -26,41 +28,64 @@ class GPayHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Google Pay'),
+        title: const Text(
+          'Google Pay',
+          style: TextStyle(color: Colors.red),
+        ),
       ),
-      body: Center(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/images/gpaybackground.png'),
+              fit: BoxFit.cover),
+        ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             GpayButton(
               text: 'Send Money',
               onPressed: () {
-                print('Sending money...');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SendMoneyScreen()),
+                );
               },
               image: 'assets/images/sendmoney.jpg',
             ),
             GpayButton(
                 text: 'Receive Money',
                 onPressed: () {
-                  print('Receiving money...');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ReceiveMoneyScreen()),
+                  );
                 },
                 image: 'assets/images/receivemoney.jpg'),
             GpayButton(
                 text: 'Transaction History',
                 onPressed: () {
-                  print('Viewing transaction history...');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const TransactionHistoryScreen()),
+                  );
                 },
                 image: 'assets/images/transaction.png'),
             GpayButton(
                 text: 'Settings',
                 onPressed: () {
-                  print('Accessing settings...');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SettingsScreen()),
+                  );
                 },
                 image: 'assets/images/settings.jpg'),
-          ] ,
+          ],
         ),
       ),
-    
     );
   }
 }
@@ -81,7 +106,7 @@ class GpayButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           Image.asset(image, width: 100, height: 200),
           const SizedBox(width: 2.0), // Add spacing between image and text
