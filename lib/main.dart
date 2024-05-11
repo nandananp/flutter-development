@@ -36,11 +36,13 @@ class GPayHomePage extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/images/gpaybackground.png'),
-              fit: BoxFit.cover),
+              image: AssetImage(
+                'assets/images/gpaybackground.png',
+              ),
+              alignment: Alignment.bottomCenter),
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             GpayButton(
               text: 'Send Money',
@@ -106,10 +108,13 @@ class GpayButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Image.asset(image, width: 100, height: 200),
-          const SizedBox(width: 2.0), // Add spacing between image and text
+          const SizedBox(
+            width: 2.0,
+            height: 2.0,
+          ), // Add spacing between image and text
           Text(text),
         ],
       ),
