@@ -32,60 +32,65 @@ class GPayHomePage extends StatelessWidget {
           'Google Pay',
           style: TextStyle(color: Colors.red),
         ),
+        centerTitle: true,
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(
-                'assets/images/gpaybackground.png',
-              ),
-              alignment: Alignment.bottomCenter),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            GpayButton(
-              text: 'Send Money',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const SendMoneyScreen()),
-                );
-              },
-              image: 'assets/images/sendmoney.jpg',
+      body: SizedBox(
+        width: 1800,
+        height: 1800,
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/gpaybackground.png'),
+              fit: BoxFit.cover,
             ),
-            GpayButton(
-                text: 'Receive Money',
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              GpayButton(
+                text: 'Send Money',
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const ReceiveMoneyScreen()),
+                        builder: (context) => const SendMoneyScreen()),
                   );
                 },
-                image: 'assets/images/receivemoney.jpg'),
-            GpayButton(
-                text: 'Transaction History',
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const TransactionHistoryScreen()),
-                  );
-                },
-                image: 'assets/images/transaction.png'),
-            GpayButton(
-                text: 'Settings',
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SettingsScreen()),
-                  );
-                },
-                image: 'assets/images/settings.jpg'),
-          ],
+                image: 'assets/images/sendmoney.jpg',
+              ),
+              GpayButton(
+                  text: 'Receive Money',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ReceiveMoneyScreen()),
+                    );
+                  },
+                  image: 'assets/images/receivemoney.jpg'),
+              GpayButton(
+                  text: 'Transaction History',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              const TransactionHistoryScreen()),
+                    );
+                  },
+                  image: 'assets/images/transaction.png'),
+              GpayButton(
+                  text: 'Settings',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SettingsScreen()),
+                    );
+                  },
+                  image: 'assets/images/settings.jpg'),
+            ],
+          ),
         ),
       ),
     );
