@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:profile_screen/FetchData.dart';
+
 import 'package:profile_screen/SendMoneyScreen.dart';
 
 void main() {
-  runApp(const GPayUI());
+  runApp(const FetchData());
 }
 
 class GPayUI extends StatelessWidget {
