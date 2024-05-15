@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:profile_screen/FetchData.dart';
+import 'package:profile_screen/CustomSearchDelegate.dart';
 
 import 'package:profile_screen/SendMoneyScreen.dart';
 
 void main() {
-  runApp(const FetchData());
+  runApp(const GPayUI());
 }
 
 class GPayUI extends StatelessWidget {
@@ -35,6 +35,14 @@ class GPayHomePage extends StatelessWidget {
           style: TextStyle(color: Colors.red),
         ),
         centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              showSearch(context: context, delegate: CustomSearchDelegate());
+            },
+          ),
+        ],
       ),
       body: SizedBox(
         width: 1800,

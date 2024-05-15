@@ -1,14 +1,27 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class SendMoneyScreen extends StatelessWidget {
-  const SendMoneyScreen({super.key});
+  const SendMoneyScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Send Money'),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {},
+            icon: SizedBox(
+              width: 24, // Adjust the width as needed
+              height: 24, // Adjust the height as needed
+              child: Lottie.network(
+                'https://lottie.host/f94925bd-8cfd-4aeb-a57b-d4592e99699e/WTrN9A5nlu.json',
+                repeat: false,
+              ),
+            ),
+          ),
+        ],
       ),
       body: const Center(
         child: Text(
@@ -25,7 +38,7 @@ class SendMoneyScreen extends StatelessWidget {
 }
 
 class ReceiveMoneyScreen extends StatelessWidget {
-  const ReceiveMoneyScreen({super.key});
+  const ReceiveMoneyScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +60,7 @@ class ReceiveMoneyScreen extends StatelessWidget {
 }
 
 class TransactionHistoryScreen extends StatelessWidget {
-  const TransactionHistoryScreen({super.key});
+  const TransactionHistoryScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +82,7 @@ class TransactionHistoryScreen extends StatelessWidget {
 }
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
+  const SettingsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

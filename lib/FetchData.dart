@@ -8,13 +8,21 @@ class FetchData extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Column(children: [
-          TextButton(
+        body: Column(
+          children: [
+            TextButton(
               onPressed: () {
                 fetchData();
               },
-              child: const Text('Fetch Data from API'))
-        ]),
+              child: const Center(
+                child: Text(
+                  'Fetch Data from API',
+                  style: TextStyle(color: Colors.green),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
