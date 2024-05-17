@@ -36,11 +36,19 @@ class GPayHomePage extends StatelessWidget {
         ),
         centerTitle: true,
         actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              showSearch(context: context, delegate: CustomSearchDelegate());
-            },
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                IconButton(
+                  icon: const Icon(Icons.search),
+                  onPressed: () {
+                    showSearch(
+                        context: context, delegate: CustomSearchDelegate());
+                  },
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -89,16 +97,6 @@ class GPayHomePage extends StatelessWidget {
                     );
                   },
                   image: 'assets/images/transaction.png'),
-              GpayButton(
-                  text: 'Settings',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SettingsScreen()),
-                    );
-                  },
-                  image: 'assets/images/settings.jpg'),
             ],
           ),
         ),
