@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:profile_screen/CustomSearchDelegate.dart';
+import 'package:profile_screen/Person.dart';
 import 'package:profile_screen/SendMoneyScreen.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
@@ -158,6 +159,19 @@ class GPayHomePage extends StatelessWidget {
                     },
                     image: 'assets/images/rewards.jpg',
                   ),
+                  const Spacer(),
+                  GpayButton(
+                    text: 'People',
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PeopleScreen()),
+                      );
+                      // Add functionality for the "People" button
+                    },
+                    image: 'assets/images/people.jpg',
+                  ),
+                  const Spacer(),
                 ],
               ),
             ],
@@ -165,6 +179,28 @@ class GPayHomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class PeopleScreen extends StatelessWidget {
+  PeopleScreen({super.key});
+  final List<Person> people = [
+    Person(name: 'Alice', imageUrl: 'assets/images/alice.jpg'),
+    Person(name: 'Surya', imageUrl: 'assets/images/surya.jpg'),
+    Person(name: 'Akhil', imageUrl: 'assets/images/akhil.jpg'),
+    // Add more people as needed
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('people'),
+        ),
+        body: const Center(
+            child: Text(
+          'PeopleScreen',
+          style: TextStyle(fontSize: 24),
+        )));
   }
 }
 
