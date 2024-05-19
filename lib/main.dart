@@ -193,14 +193,27 @@ class PeopleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('people'),
+      appBar: AppBar(
+        title: const Text('people'),
+      ),
+      body: Center(
+        child: ListView.builder(
+          itemCount: people.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: CircleAvatar(
+                backgroundImage: AssetImage(people[index].imageUrl),
+              ),
+              title: Text(people[index].name),
+              onTap: () {
+                // Add functionality when a person is tapped
+                // For example, navigate to a detail page for that person
+              },
+            );
+          },
         ),
-        body: const Center(
-            child: Text(
-          'PeopleScreen',
-          style: TextStyle(fontSize: 24),
-        )));
+      ),
+    );
   }
 }
 
