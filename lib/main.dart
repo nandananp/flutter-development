@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:profile_screen/CustomSearchDelegate.dart';
-import 'package:profile_screen/Person.dart';
 import 'package:profile_screen/SendMoneyScreen.dart';
+import 'package:profile_screen/Person.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 void main() {
@@ -172,10 +172,106 @@ class GPayHomePage extends StatelessWidget {
                     image: 'assets/images/people.jpg',
                   ),
                   const Spacer(),
+                  GpayButton(
+                    text: 'Business',
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BusinessScreen()),
+                      );
+                    },
+                    image:
+                        'assets/images/business.jpg', // Add your business image here
+                  ),
+                  GpayButton(
+                    text: 'Offers',
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const OffersScreen()),
+                      );
+                    },
+                    image: 'assets/images/offer.jpg', // Add the offers image
+                  ),
                 ],
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class OffersScreen extends StatelessWidget {
+  const OffersScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Offers'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Current Offers',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            const SizedBox(height: 20),
+            // Add your offers UI here
+            Text(
+              'No offers available at the moment.',
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class BusinessScreen extends StatelessWidget {
+  const BusinessScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Business'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Welcome to the Business Section',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Add your business-related functionality here
+              },
+              child: const Text('Add a Business'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Add your business-related functionality here
+              },
+              child: const Text('View Business Accounts'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Add your business-related functionality here
+              },
+              child: const Text('Business Analytics'),
+            ),
+            // Add more buttons or widgets for other business-related functionalities
+          ],
         ),
       ),
     );
@@ -188,6 +284,8 @@ class PeopleScreen extends StatelessWidget {
     Person(name: 'Alice', imageUrl: 'assets/images/alice.jpg'),
     Person(name: 'Surya', imageUrl: 'assets/images/surya.jpg'),
     Person(name: 'Akhil', imageUrl: 'assets/images/akhil.jpg'),
+    Person(name: 'Arya', imageUrl: 'assets/images/arya.jpg'),
+    Person(name: 'Rahul', imageUrl: 'assets/images/rahul.jpg'),
     // Add more people as needed
   ];
   @override
