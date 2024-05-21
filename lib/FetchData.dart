@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class FetchData extends StatelessWidget {
-  const FetchData({Key? key}) : super(key: key);
+  const FetchData({super.key});
 
   @override
   Widget build(BuildContext context) {

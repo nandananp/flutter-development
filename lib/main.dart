@@ -220,13 +220,13 @@ class OffersScreen extends StatelessWidget {
           children: <Widget>[
             Text(
               'Current Offers',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(height: 20),
             // Add your offers UI here
             Text(
               'No offers available at the moment.',
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ],
         ),
@@ -249,7 +249,7 @@ class BusinessScreen extends StatelessWidget {
           children: <Widget>[
             Text(
               'Welcome to the Business Section',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(height: 20),
             ElevatedButton(
@@ -316,7 +316,7 @@ class PeopleScreen extends StatelessWidget {
 }
 
 class QRCodeScannerScreen extends StatefulWidget {
-  const QRCodeScannerScreen({Key? key}) : super(key: key);
+  const QRCodeScannerScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -525,7 +525,7 @@ class PayBillsScreen extends StatelessWidget {
           children: <Widget>[
             Text(
               'Pay your bills here!',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(height: 20),
             ElevatedButton(
@@ -547,11 +547,11 @@ class GpayButton extends StatelessWidget {
   final String image;
 
   const GpayButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
     required this.image,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

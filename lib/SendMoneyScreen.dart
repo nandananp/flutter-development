@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class SendMoneyScreen extends StatelessWidget {
-  const SendMoneyScreen({Key? key}) : super(key: key);
+  const SendMoneyScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class SendMoneyScreen extends StatelessWidget {
 }
 
 class ReceiveMoneyScreen extends StatelessWidget {
-  const ReceiveMoneyScreen({Key? key}) : super(key: key);
+  const ReceiveMoneyScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class ReceiveMoneyScreen extends StatelessWidget {
 }
 
 class TransactionHistoryScreen extends StatelessWidget {
-  const TransactionHistoryScreen({Key? key}) : super(key: key);
+  const TransactionHistoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
