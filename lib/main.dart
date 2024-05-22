@@ -29,6 +29,8 @@ class GPayHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -88,21 +90,24 @@ class GPayHomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: SizedBox(
-        width: 1800,
-        height: 1800,
-        child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/gpaybackground.png'),
-              fit: BoxFit.cover,
-            ),
+      body: Container(
+        width: screenSize.width,
+        height: screenSize.height,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/gpaybackground.png'),
+            fit: BoxFit.cover,
           ),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              child: GridView.count(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                padding: const EdgeInsets.all(10),
+                children: [
                   GpayButton(
                     text: 'Send Money',
                     onPressed: () {
@@ -159,7 +164,6 @@ class GPayHomePage extends StatelessWidget {
                     },
                     image: 'assets/images/rewards.jpg',
                   ),
-                  const Spacer(),
                   GpayButton(
                     text: 'People',
                     onPressed: () {
@@ -167,11 +171,9 @@ class GPayHomePage extends StatelessWidget {
                         context,
                         MaterialPageRoute(builder: (context) => PeopleScreen()),
                       );
-                      // Add functionality for the "People" button
                     },
                     image: 'assets/images/people.jpg',
                   ),
-                  const Spacer(),
                   GpayButton(
                     text: 'Business',
                     onPressed: () {
@@ -181,8 +183,7 @@ class GPayHomePage extends StatelessWidget {
                             builder: (context) => const BusinessScreen()),
                       );
                     },
-                    image:
-                        'assets/images/business.jpg', // Add your business image here
+                    image: 'assets/images/business.jpg',
                   ),
                   GpayButton(
                     text: 'Offers',
@@ -193,12 +194,12 @@ class GPayHomePage extends StatelessWidget {
                             builder: (context) => const OffersScreen()),
                       );
                     },
-                    image: 'assets/images/offer.jpg', // Add the offers image
+                    image: 'assets/images/offer.jpg',
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -292,7 +293,7 @@ class PeopleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('people'),
+        title: const Text('People'),
       ),
       body: Center(
         child: ListView.builder(
@@ -555,15 +556,33 @@ class GpayButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Image.asset(image, width: 60, height: 40),
-          const SizedBox(height: 30.0),
-          Text(text),
-        ],
+    final screenSize = MediaQuery.of(context).size;
+    final buttonHeight = screenSize.height * 0.1; // Reduced button height
+    final buttonWidth = screenSize.width * 0.4;
+
+    return SizedBox(
+      height: buttonHeight,
+      width: buttonWidth,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            CircleAvatar(
+              radius: 20, // Adjust the radius to reduce the size
+              backgroundColor: Colors.white, // or any color you prefer
+              child: Image.asset(image,
+                  width: 30, height: 30), // Adjust the image size
+            ),
+            const SizedBox(height: 5.0), // Adjust spacing as needed
+            Text(text),
+          ],
+        ),
       ),
     );
   }
