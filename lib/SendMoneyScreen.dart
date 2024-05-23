@@ -25,11 +25,13 @@ class SendMoneyScreen extends StatelessWidget {
       ),
       body: const Center(
         child: Text(
-          'Send Money Screen',
+          'MONEY SEND SUCCESSFULLY',
+
           style: TextStyle(
-            fontSize: 15,
+            fontSize: 20,
             color: Colors.black,
-            backgroundColor: Colors.cyan,
+            backgroundColor: Colors.greenAccent,
+
           ),
         ),
       ),
@@ -48,10 +50,12 @@ class ReceiveMoneyScreen extends StatelessWidget {
       ),
       body: const Center(
         child: Text(
-          'Receive Money Screen',
+          'RECEIVE MONEY SCREEN',
           style: TextStyle(
+
+    fontSize: 30,
             color: Colors.black,
-            backgroundColor: Colors.yellow,
+            backgroundColor: Colors.deepPurpleAccent,
           ),
         ),
       ),
@@ -70,10 +74,11 @@ class TransactionHistoryScreen extends StatelessWidget {
       ),
       body: const Center(
         child: Text(
-          'Transaction History Screen',
+          'TRANSACTION HISTORY SCREEN',
           style: TextStyle(
+            fontSize:20,
             color: Colors.black,
-            backgroundColor: Colors.red,
+            backgroundColor: Colors.purple,
           ),
         ),
       ),

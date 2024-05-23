@@ -45,7 +45,9 @@ class GPayHomePage extends StatelessWidget {
                 showSearch(context: context, delegate: CustomSearchDelegate());
               },
             ),
+
           ),
+
           IconButton(
             icon: const Icon(Icons.qr_code_scanner),
             onPressed: () {
@@ -557,8 +559,8 @@ class GpayButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    final buttonHeight = screenSize.height * 0.1; // Reduced button height
-    final buttonWidth = screenSize.width * 0.4;
+    final buttonHeight = screenSize.height * 0.08;// Reduced button height
+    final buttonWidth = screenSize.width * 0.35;
 
     return SizedBox(
       height: buttonHeight,
@@ -566,9 +568,13 @@ class GpayButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.blue,
+          backgroundColor: Colors.grey[300],
           shape: RoundedRectangleBorder(
+
             borderRadius: BorderRadius.circular(10),
           ),
+          padding: EdgeInsets.zero,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
